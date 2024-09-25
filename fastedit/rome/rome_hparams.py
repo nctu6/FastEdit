@@ -93,6 +93,16 @@ class ROMEHyperParams(HyperParams):
                 rewrite_module_tmp="transformer.h.{}.mlp.dense_4h_to_h",
                 attn_module_tmp="transformer.h.{}.self_attention"
             ))
+        elif name == "qwen2.5-14b":
+            data.update(dict(
+                layers=[10],
+                v_loss_layer=47,
+                rewrite_module_tmp="model.layers.{}.mlp.down_proj",
+                layer_module_tmp="model.layers.{}",
+                mlp_module_tmp="model.layers.{}.mlp",
+                attn_module_tmp="model.layers.{}.self_attn",
+                ln_f_module="model.norm"
+            ))
         else:
             raise NotImplementedError
 

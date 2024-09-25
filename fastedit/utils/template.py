@@ -52,6 +52,12 @@ class Template:
             """
             self.prompt = "<human>:{query}\n<bot>:"
 
+        elif self.name == "qwen":
+            r"""
+            Supports: https://huggingface.co/Qwen/Qwen2.5-14B-Instruct
+            """
+            self.prompt = "<|im_start|>user\n{query}\n<|im_end|>\n<|im_start|>assistant\n"
+
         else:
             raise NotImplementedError
 
